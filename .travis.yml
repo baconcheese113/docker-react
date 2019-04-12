@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t yannessaj/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run yannessaj/docker-react npm run test -- --coverage
